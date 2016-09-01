@@ -14,7 +14,7 @@ You also needs to install the Node.js package called *authenticator-cli*, which 
 
 ## Setting up authenticator-cli
 
-First, you need to login to [TACC](https://portal.tacc.utexas.edu) and get a ‘TACC Token App’, in the device pairing. If you have one already, you need to set it up again. 
+First, you need to login to [TACC](https://portal.tacc.utexas.edu) and get a *TACC Token App*, in the device pairing. If you have one already, you need to set it up again. 
 
 Once you ask to pair a new device, it will show the QR code. Don't scan it yet with your phone, else it will disappear. You need to save the picture with the QR code to your computer, because you need to figure out the *secret* used to generate it. Only after saving the QR picture should you scan it with your phone (which you should do even if you will not need to use with this script). By the way, Google authenticator works fine, so there's no need to install the dedicated [TACC App](https://portal.tacc.utexas.edu/tutorials/multifactor-authentication#smartphone) for that.
 
