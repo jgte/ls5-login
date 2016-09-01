@@ -62,7 +62,7 @@ echo "Token is: $TOKEN"
 #wait a little bit
 WAIT_TOKEN=0.1
 
-echo "Logging in (please wait, token will take $WAIT_TOKEN to be sent):"
+echo "Logging in (please wait, this takes a couple of seconds):"
 $ECHO expect -c "
   spawn ssh -l $USER_NOW -Y ${CSR}ls5.tacc.utexas.edu
   expect \"Password: \"
