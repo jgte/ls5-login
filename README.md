@@ -22,7 +22,7 @@ Then head to [this QR code decoder](http://blog.qr4.nl/Online-QR-Code_Decoder.as
 
 `otpauth://totp/byaa676?secret=IZTCYTTCJRCZRVYERMDKYEXPTHAHKZXW&issuer=TACC`
 
-You can test if `authenticator-cli` is giving you the correct token by comparing the what your phone says and the output of the following command:
+You can test if `authenticator-cli` is giving you the correct token by comparing what your phone says with the output of the following command:
 
 `authenticator --key IZTCYTTCJRCZRVYERMDKYEXPTHAHKZXW`
 
