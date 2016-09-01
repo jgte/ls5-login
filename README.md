@@ -18,7 +18,7 @@ First, you need to login to [TACC](https://portal.tacc.utexas.edu) and get a *TA
 
 Once you ask to pair a new device, it will show the QR code. Don't scan it yet with your phone, else it will disappear. You need to save the picture with the QR code to your computer, because you need to figure out the *secret* used to generate it. Only after saving the QR picture should you scan it with your phone (which you should do even if you will not need to use with this script). By the way, [Google authenticator](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2) works fine, so there's no need to install the dedicated [TACC App](https://portal.tacc.utexas.edu/tutorials/multifactor-authentication#smartphone) for that.
 
-Then head to [this QR code decoder](http://blog.qr4.nl/Online-QR-Code_Decoder.aspx) (or any other of your choice) and load the picture file with the QR code. It will give the 32 character *secret* string inside the `otpauth` URL, after the `secret=` field name and before the `issuer=TACC` field, `IZTCYTTCJRCZRVYERMDKYEXPTHAHKZXW` in the following example:
+Then head to [this QR code decoder](http://blog.qr4.nl/Online-QR-Code_Decoder.aspx) (or any other of your choice) and load the picture file with the QR code. It will spit out the 32 character *secret* string inside the `otpauth` URL, after the `secret=` field name and before the `issuer=TACC` field, `IZTCYTTCJRCZRVYERMDKYEXPTHAHKZXW` in the following example:
 
 `otpauth://totp/byaa676?secret=IZTCYTTCJRCZRVYERMDKYEXPTHAHKZXW&issuer=TACC`
 
