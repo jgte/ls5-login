@@ -26,7 +26,7 @@ You can test if `authenticator-cli` is giving you the correct token by comparing
 
 `authenticator --key IZTCYTTCJRCZRVYERMDKYEXPTHAHKZXW`
 
-Copy and paste the *secret* string into an empty file.
+Finally, copy and paste the *secret* string into an empty file.
 
 ## Setting your login credentials
 
