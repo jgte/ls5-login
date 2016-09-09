@@ -40,8 +40,8 @@ Simply call the `ls5.sh` script, give your password and wait for a few seconds.
 
 The following optional input arguments are supported:
 
-- `debug` or `echo` shows the commands that would be issued (without actually doing anything);
-- `csr` login to `login3.ls5.tacc.utexas.edu` instead of `ls5.tacc.utexas.edu`;
+- `debug` or `echo` to show the commands that would be issued (without actually doing anything);
+- `csr` to login to `login3.ls5.tacc.utexas.edu` instead of `ls5.tacc.utexas.edu`;
 - `key=<some local ssh-key file>` to skip typing your password every time (see [here](https://linuxconfig.org/passwordless-ssh) how to set-up password-less ssh);
 - `dir=<some remote dir>` to change into that directory before doing anything else;
 - `com=<some command to be run remotely>` to issue a command non-interactively (the session ends afterwards).
