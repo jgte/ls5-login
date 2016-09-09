@@ -109,7 +109,7 @@ produces:
 ```
 Logging in (please wait, this takes a couple of seconds):
 expect -c
-spawn ssh -l byaa676  -Y -t login3.ls5.tacc.utexas.edu **"cd bin; exec /bin/bash -l"**
+spawn ssh -l byaa676  -Y -t login3.ls5.tacc.utexas.edu <b>"cd bin; exec /bin/bash -l"</b>
 
 expect "TACC Token: "
 sleep 0.1
