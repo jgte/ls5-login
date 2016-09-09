@@ -93,7 +93,7 @@ interact
 ls5.sh csr <b>com='cd bin'</b> echo
 </pre>
 
-produces:
+produces (the pretty useless exercise of changing directory to `bin` and logging out immediately):
 
 <pre>
 Logging in (please wait, this takes a couple of seconds):
