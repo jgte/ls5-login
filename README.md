@@ -22,11 +22,15 @@ Then head to [this QR code decoder](http://blog.qr4.nl/Online-QR-Code_Decoder.as
 
 `otpauth://totp/byaa676?secret=IZTCYTTCJRCZRVYERMDKYEXPTHAHKZXW&issuer=TACC`
 
+Finally, copy and paste the *secret* string into an empty file.
+
+## TEsting ig the authenticator-cli is working
+
 You can test if `authenticator-cli` is giving you the correct token by comparing what your phone says with the output of the following command:
 
 `authenticator --key IZTCYTTCJRCZRVYERMDKYEXPTHAHKZXW`
 
-Finally, copy and paste the *secret* string into an empty file.
+I suggest you confirm that is the case before proceeding.
 
 ## Setting your login credentials
 
