@@ -51,54 +51,60 @@ Important notes:
 - with `echo`, no password is asked and you will not see how that affects the command that is shown;
 - the order of the commands is not important, except when `dir=` and `com=` are used concurrently: `com=` will override `dir=` unless the latter comes after the former in the sequence of input arguments, e.g.:
 
-```ls5.sh csr **com='ls -la' dir=bin** echo```
+<pre>
+ls5.sh csr <b>com='ls -la' dir=bin</b> echo
+</pre>
 
 produces:
 
-```
+<pre>
 Logging in (please wait, this takes a couple of seconds):
 expect -c
-spawn ssh -l <username> -Y -t login3.ls5.tacc.utexas.edu **"cd bin; ls -la"**
+spawn ssh -l <username> -Y -t login3.ls5.tacc.utexas.edu <b>"cd bin; ls -la"</b>
 
 expect "TACC Token: "
 sleep 0.1
 send "695941\r"
 interact
-```
+</pre>
 
 while
 
-```ls5.sh csr **dir=bin com='ls -la'** echo```
+<pre>
+ls5.sh csr <b>dir=bin com='ls -la'</b> echo
+</pre>
 
 produces:
 
-```
+<pre>
 Logging in (please wait, this takes a couple of seconds):
 expect -c
-spawn ssh -l <username> -Y -t login3.ls5.tacc.utexas.edu **"ls -la"**
+spawn ssh -l <username> -Y -t login3.ls5.tacc.utexas.edu <b>"ls -la"</b>
 
 expect "TACC Token: "
 sleep 0.1
 send "044298\r"
 interact
-```
+</pre>
 
 - the input `com=` force a non-interactive session, while the input `dir=` does not:
 
-```ls5.sh csr **com='cd bin'** echo```
+<pre>
+ls5.sh csr <b>com='cd bin'</b> echo
+</pre>
 
 produces:
 
-```
+<pre>
 Logging in (please wait, this takes a couple of seconds):
 expect -c
-spawn ssh -l byaa676  -Y -t login3.ls5.tacc.utexas.edu *"cd bin"*
+spawn ssh -l byaa676  -Y -t login3.ls5.tacc.utexas.edu <b>"cd bin"</b>
 
 expect "TACC Token: "
 sleep 0.1
 send "309761\r"
 interact
-````
+</pre>
 
 while
 
@@ -108,16 +114,16 @@ ls5.sh csr <b>dir=bin</b> echo
 
 produces:
 
-```
+<pre>
 Logging in (please wait, this takes a couple of seconds):
 expect -c
-spawn ssh -l byaa676  -Y -t login3.ls5.tacc.utexas.edu "cd bin; exec /bin/bash -l"
+spawn ssh -l byaa676  -Y -t login3.ls5.tacc.utexas.edu <b>"cd bin; exec /bin/bash -l"</b>
 
 expect "TACC Token: "
 sleep 0.1
 send "041694\r"
 interact
-``
+</pre>
 
 
 
