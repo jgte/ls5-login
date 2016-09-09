@@ -24,7 +24,7 @@ Then head to [this QR code decoder](http://blog.qr4.nl/Online-QR-Code_Decoder.as
 
 Finally, copy and paste the *secret* string into an empty file.
 
-## TEsting ig the authenticator-cli is working
+## Testing ig the authenticator-cli is working
 
 You can test if `authenticator-cli` is giving you the correct token by comparing what your phone says with the output of the following command:
 
