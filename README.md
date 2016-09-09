@@ -87,7 +87,7 @@ send "044298\r"
 interact
 </pre>
 
-- the input `com=` force a non-interactive session, while the input `dir=` does not:
+- the input `com=` forces a non-interactive session, while the input `dir=` does not:
 
 <pre>
 ls5.sh csr <b>com='cd bin'</b> echo
