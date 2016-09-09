@@ -60,7 +60,7 @@ produces:
 <pre>
 Logging in (please wait, this takes a couple of seconds):
 expect -c
-spawn ssh -l <username> -Y -t login3.ls5.tacc.utexas.edu <b>"cd bin; ls -la"</b>
+spawn ssh -l username -Y -t login3.ls5.tacc.utexas.edu <b>"cd bin; ls -la"</b>
 
 expect "TACC Token: "
 sleep 0.1
@@ -79,7 +79,7 @@ produces:
 <pre>
 Logging in (please wait, this takes a couple of seconds):
 expect -c
-spawn ssh -l <username> -Y -t login3.ls5.tacc.utexas.edu <b>"ls -la"</b>
+spawn ssh -l username -Y -t login3.ls5.tacc.utexas.edu <b>"ls -la"</b>
 
 expect "TACC Token: "
 sleep 0.1
@@ -98,7 +98,7 @@ produces:
 <pre>
 Logging in (please wait, this takes a couple of seconds):
 expect -c
-spawn ssh -l byaa676  -Y -t login3.ls5.tacc.utexas.edu <b>"cd bin"</b>
+spawn ssh -l username  -Y -t login3.ls5.tacc.utexas.edu <b>"cd bin"</b>
 
 expect "TACC Token: "
 sleep 0.1
@@ -117,7 +117,7 @@ produces:
 <pre>
 Logging in (please wait, this takes a couple of seconds):
 expect -c
-spawn ssh -l byaa676  -Y -t login3.ls5.tacc.utexas.edu <b>"cd bin; exec /bin/bash -l"</b>
+spawn ssh -l username  -Y -t login3.ls5.tacc.utexas.edu <b>"cd bin; exec /bin/bash -l"</b>
 
 expect "TACC Token: "
 sleep 0.1
