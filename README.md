@@ -38,7 +38,7 @@ There are three ways to set your login credentials:
 
 - Modify the `USERNAME_DEFAULT` and `SECRET_DEFAULT` variables in lines 30 and 31;
 
-- Create a file with `username=<something>` and `secret=<something>` in individual lines;
+- Create a file (by default is `$HOME/.ssh/ls5.sh.options`, or any other defined with the `options-file=` argument) with `username=<something>` and `secret=<something>` in individual lines;
 
 - Explicitly call the `ls5.sh` script with the arguments `username=<something>` and `secret=<something>`.
 
@@ -55,7 +55,8 @@ The following optional input arguments are supported:
 - `ls5-address=<IP address of Lonestar5>` to specify a different address to Lonestar5 (e.g. `login3.ls5.tacc.utexas.edu`);
 - `ssh-key=<some local ssh-key file>` to skip typing your password every time (see [here](https://linuxconfig.org/passwordless-ssh) how to set-up password-less ssh), making this script completely non-interactive (which is specially useful in conjunction with the `remote-com=` argument);
 - `remote-dir=<some remote dir>` to change into that directory before doing anything else;
-- `remote-com=<some command to be run remotely>` to issue a command non-interactively (don't forget `exit` if you want the session to end).
+- `remote-com=<some command to be run remotely>` to issue a command non-interactively (don't forget `exit` if you want the session to end);
+- `options-file=<some file with the options above, one in each line>` to store often-used options (such as `username=` and `secret=`).
 
 Important notes:
 
