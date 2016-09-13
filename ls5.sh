@@ -143,9 +143,9 @@ then
       echo "Please run 'sudo apt-get install xclip'"
     fi
   else
-    echo "ERROR: cannot copy token to the clipboard, this OS is not supported."
+    echo "The token is $TOKEN (cannot copy token to the clipboard, this OS is not supported: implementation needed)"
   fi
-  echo "Copied to clipboard the token $TOKEN"
+  echo "Copied to clipboard the token "
   exit
 fi
 
