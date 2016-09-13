@@ -51,6 +51,7 @@ Simply call the `ls5.sh` script (considering one of the three options of setting
 The following optional input arguments are supported:
 
 - `debug` or `echo` shows the commands that would be issued (without actually doing anything);
+- `token` retrieves the token, copying it to the clipboard (no other operations are done);
 - `ls5-address=<IP address of Lonestar5>` to specify a different address to Lonestar5 (e.g. `login3.ls5.tacc.utexas.edu`);
 - `ssh-key=<some local ssh-key file>` to skip typing your password every time (see [here](https://linuxconfig.org/passwordless-ssh) how to set-up password-less ssh), making this script completely non-interactive (which is specially useful in conjunction with the `remote-com=` argument);
 - `remote-dir=<some remote dir>` to change into that directory before doing anything else;
