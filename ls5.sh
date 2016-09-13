@@ -145,7 +145,7 @@ then
   else
     echo "The token is $TOKEN (cannot copy token to the clipboard, this OS is not supported: implementation needed)"
   fi
-  echo "Copied to clipboard the token "
+  echo "Copied to clipboard the token $TOKEN"
   exit
 fi
 
