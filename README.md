@@ -62,7 +62,7 @@ Important notes:
 - with `echo`, no password is asked and you will not see how that affects the command that is shown;
 - the order of the commands is not important;
 - all input arguments described above can be written to a plain text file (default is `~/.ssh/ls5.sh.options`), one option per line;
-- the arguments `username=` and `secret=` must be defined in one of the ways explained in [Setting your login credentials](setting-your-login-credentials).
+- the arguments `username=` and `secret=` must be defined in one of the ways explained in [Setting your login credentials](#setting-your-login-credentials).
 
 
 
