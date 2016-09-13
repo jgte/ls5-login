@@ -30,92 +30,34 @@ Finally, copy and paste the *secret* string into an empty file.
 
 ## Setting your login credentials
 
-You need to update the two variables at the top of the script. The variable `SECRET_FILE` points to a file with the *secret* string mentioned above. The variable `USER_NOW` defines your user-name in Lonestar5.
+There are three ways to set your login credentials:
+
+- Modify the `USERNAME_DEFAULT` and `SECRET_DEFAULT` variables in lines 30 and 31;
+
+- Create a file with `username=<something>` and `secret=<something>` in individual lines;
+
+- Explicitly call the `ls5.sh` script with the arguments `username=<something>` and `secret=<something>`.
 
 ## Logging in
 
-Simply call the `ls5.sh` script, give your password and wait for a few seconds.
+Simply call the `ls5.sh` script (considering one of the three options of setting your login credentials explained above), give your password and wait for a few seconds.
 
 ## Advanced options
 
 The following optional input arguments are supported:
 
 - `debug` or `echo` shows the commands that would be issued (without actually doing anything);
-- `csr` login to `login3.ls5.tacc.utexas.edu` instead of `ls5.tacc.utexas.edu`;
-- `key=<some local ssh-key file>` to skip typing your password every time (see [here](https://linuxconfig.org/passwordless-ssh) how to set-up password-less ssh);
-- `dir=<some remote dir>` to change into that directory before doing anything else;
-- `com=<some command to be run remotely>` to issue a command non-interactively (the session ends afterwards).
+- `secret=<valid 32 character secret token>` specifies the *secret* string;
+- `ls5-address=<IP address of Lonestar5>` to specify a different address to Lonestar5 (e.g. `login3.ls5.tacc.utexas.edu`);
+- `ssh-key=<some local ssh-key file>` to skip typing your password every time (see [here](https://linuxconfig.org/passwordless-ssh) how to set-up password-less ssh);
+- `remote-dir==<some remote dir>` to change into that directory before doing anything else;
+- `remote-com=<some command to be run remotely>` to issue a command non-interactively (don't forget `exit` if you want the session to end).
 
 Important notes:
 
 - with `echo`, no password is asked and you will not see how that affects the command that is shown;
-- the order of the commands is not important, except when `dir=` and `com=` are used concurrently: `com=` will override `dir=` unless the latter comes after the former in the sequence of input arguments, e.g.:
-
-```ls5.sh csr **com='ls -la' dir=bin** echo```
-
-produces:
-
-```
-Logging in (please wait, this takes a couple of seconds):
-expect -c
-spawn ssh -l <username> -Y -t login3.ls5.tacc.utexas.edu **"cd bin; ls -la"**
-
-expect "TACC Token: "
-sleep 0.1
-send "695941\r"
-interact
-```
-
-while
-
-```ls5.sh csr **dir=bin com='ls -la'** echo```
-
-produces:
-
-```
-Logging in (please wait, this takes a couple of seconds):
-expect -c
-spawn ssh -l <username> -Y -t login3.ls5.tacc.utexas.edu **"ls -la"**
-
-expect "TACC Token: "
-sleep 0.1
-send "044298\r"
-interact
-```
-
-- the input `com=` force a non-interactive session, while the input `dir=` does not:
-
-```ls5.sh csr **com='cd bin'** echo```
-
-produces:
-
-```
-Logging in (please wait, this takes a couple of seconds):
-expect -c
-spawn ssh -l byaa676  -Y -t login3.ls5.tacc.utexas.edu *"cd bin"*
-
-expect "TACC Token: "
-sleep 0.1
-send "309761\r"
-interact
-````
-
-while
-
-```ls5.sh csr **dir=bin** echo```
-
-produces:
-
-```
-Logging in (please wait, this takes a couple of seconds):
-expect -c
-spawn ssh -l byaa676  -Y -t login3.ls5.tacc.utexas.edu **"cd bin; exec /bin/bash -l"**
-
-expect "TACC Token: "
-sleep 0.1
-send "041694\r"
-interact
-``
+- the order of the commands is not important;
+- all input arguments described above can be written to a plain text file (default is `~/.ssh/ls5.sh.options`), one option per line.
 
 
 
