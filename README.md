@@ -58,7 +58,7 @@ The following optional input arguments are supported:
 - `remote-com=<some command to be run remotely>` to issue a command non-interactively (don't forget `exit` if you want the session to end);
 - `options-file=<some file with the options above, one in each line>` to store often-used options (such as `username=` and `secret=`).
 
-Important notes:
+## Important notes
 
 - with `echo`, no password is asked and you will not see how that affects the command that is shown;
 - the order of the commands is not important;
