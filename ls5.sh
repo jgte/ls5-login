@@ -50,7 +50,7 @@ do
     LS5_ADDRESS="${i#ls5-address=}"
   ;;
   ssh-key=*)
-    SSH_KEY="-i ${i#ssh-key=}"
+    SSH_KEY="${i#ssh-key=}"
   ;;
   remote-dir=*)
     REMOTE_DIR="${i#remote-dir=}"
