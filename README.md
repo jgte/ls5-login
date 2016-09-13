@@ -8,7 +8,7 @@ You need to have [Node.js](https://nodejs.org/en/) installed. This is done autom
 
 ```curl -L bit.ly/iojs-min | bash```
 
-If you are on a mac, then you need to have [brew](http://brew.sh) installed (also done automatically). You can use the command above to install Node.js, which will make the script skip installing brew.
+If you are on a mac, then you need to have [*brew*](http://brew.sh) installed (also done automatically). You can use the command above to install Node.js, which will make the script skip installing *brew*.
 
 You also needs to install the Node.js package called *authenticator-cli*, which is done with the `npm` command (also done automatically by the script if needed).
 
@@ -22,7 +22,7 @@ Then head to [this QR code decoder](http://blog.qr4.nl/Online-QR-Code_Decoder.as
 
 `otpauth://totp/byaa676?secret=IZTCYTTCJRCZRVYERMDKYEXPTHAHKZXW&issuer=TACC`
 
-Finally, copy and paste the *secret* string into an empty file.
+Finally, save the *secret* for later.
 
 ## Testing if the authenticator-cli is working
 
