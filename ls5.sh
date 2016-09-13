@@ -86,7 +86,7 @@ then
       [ -z "$LS5_ADDRESS" ] && LS5_ADDRESS="${i#ls5-address=}"
     ;;
     ssh-key=*)
-      [ -z "$SSH_KEY" ] && SSH_KEY="-i ${i#ssh-key=}"
+      [ -z "$SSH_KEY" ] && SSH_KEY="${i#ssh-key=}"
     ;;
     remote-dir=*)
       [ -z "$REMOTE_DIR" ] && REMOTE_DIR="${i#remote-dir=}"
