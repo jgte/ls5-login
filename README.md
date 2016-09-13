@@ -38,7 +38,7 @@ There are three ways to set your login credentials:
 
 - Modify the `USERNAME_DEFAULT` and `SECRET_DEFAULT` variables in lines 30 and 31;
 
-- Create a file (by default is `$HOME/.ssh/ls5.sh.options`, or any other defined with the `options-file=` argument) with `username=<something>` and `secret=<something>` in individual lines;
+- Create a file (the default is `$HOME/.ssh/ls5.sh.options`, or any other defined with the `options-file=` argument) with `username=<something>` and `secret=<something>` in individual lines;
 
 - Explicitly call the `ls5.sh` script with the arguments `username=<something>` and `secret=<something>`.
 
