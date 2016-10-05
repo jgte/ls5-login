@@ -66,6 +66,18 @@ do
   ;;
   esac
 done
+if [ ! -z "$ECHO" ]
+then
+  echo "--- arguments:"
+  echo     USERNAME=$USERNAME
+  echo       SECRET=$SECRET
+  echo  LS5_ADDRESS=$LS5_ADDRESS
+  echo      SSH_KEY=$SSH_KEY
+  echo   REMOTE_DIR=$REMOTE_DIR
+  echo   REMOTE_COM=$REMOTE_COM
+  echo         ECHO=$ECHO
+  echo OPTIONS_FILE=$OPTIONS_FILE
+fi
 
 #propagate options file (if file is present and options not given in argument list)
 if [ ! -z "$OPTIONS_FILE" ]
@@ -97,6 +109,18 @@ then
     esac
   done < $OPTIONS_FILE
 fi
+if [ ! -z "$ECHO" ]
+then
+  echo "--- file:"
+  echo     USERNAME=$USERNAME
+  echo       SECRET=$SECRET
+  echo  LS5_ADDRESS=$LS5_ADDRESS
+  echo      SSH_KEY=$SSH_KEY
+  echo   REMOTE_DIR=$REMOTE_DIR
+  echo   REMOTE_COM=$REMOTE_COM
+  echo         ECHO=$ECHO
+  echo OPTIONS_FILE=$OPTIONS_FILE
+fi
 
 #propagate defaults
 [ -z "$USERNAME" ]    &&    USERNAME=$USERNAME_DEFAULT
@@ -106,6 +130,18 @@ fi
 [ -z "$REMOTE_DIR" ]  &&  REMOTE_DIR=$REMOTE_DIR_DEFAULT
 [ -z "$REMOTE_COM" ]  &&  REMOTE_COM=$REMOTE_COM_DEFAULT
 
+if [ ! -z "$ECHO" ]
+then
+  echo "--- final:"
+  echo     USERNAME=$USERNAME
+  echo       SECRET=$SECRET
+  echo  LS5_ADDRESS=$LS5_ADDRESS
+  echo      SSH_KEY=$SSH_KEY
+  echo   REMOTE_DIR=$REMOTE_DIR
+  echo   REMOTE_COM=$REMOTE_COM
+  echo         ECHO=$ECHO
+  echo OPTIONS_FILE=$OPTIONS_FILE
+fi
 
 #sanity and handling
 if [ -z "$USERNAME" ]
@@ -128,6 +164,7 @@ fi
 [ -z "$REMOTE_DIR" ] || REMOTE_COM="cd $REMOTE_DIR; $REMOTE_COM"
 
 #retrieve token
+[ ! -z "$ECHO" ] && echo "authenticator --key $SECRET | grep Token | awk '{print $2}'"
 TOKEN=$(authenticator --key $SECRET | grep Token | awk '{print $2}')
 if [[ ! "$@" == "${@/token/}" ]]
 then
@@ -167,7 +204,7 @@ echo "Logging in (please wait, this takes a couple of seconds):"
 $ECHO expect -c "
 spawn ssh -l $USERNAME $SSH_KEY -Y -t $LS5_ADDRESS \"$REMOTE_COM\"
 $PASSWD_EXPECT
-expect \"TACC Token: \"
+expect \"TACC Token Code:\"
 sleep $WAIT_TOKEN
 send \"$TOKEN\r\"
 interact
