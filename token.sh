@@ -187,17 +187,13 @@ else
   LAST_TOKEN="unknown"
   LAST_TOKEN_EPOCH=0
 fi
-#no need to make noise unnecessarily
-SOUND_BELL=false
 #make sure token has changed
 while [ ! "$LAST_TOKEN" == "unknown" ] &&  [ "$TOKEN" == "$LAST_TOKEN" ]
 do
-  SOUND_BELL=true
   sleep 1
   echoerr "last token ($LAST_TOKEN) as not yet changed, expecting new token in $(( 30 - $(now_time) + $LAST_TOKEN_EPOCH )) seconds)"
   TOKEN=$(authenticator --key $SECRET | grep Token | awk '{print $2}')
 done
-if $SOUND_BELL; then for i in 0.22 0.14 0.22; do printf '\a'; sleep $i ; done; fi
 echo $TOKEN > $LAST_TOKEN_FILE
 
 if $NOCLIP
