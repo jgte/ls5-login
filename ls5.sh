@@ -19,8 +19,9 @@ expect {
     exp_continue
   }
   "TACC Token Code:" {
+    send_user -- " Calling ~/bin/token.sh ... "
     set token [exec ~/bin/token.sh tacc no-clip 2> /dev/null]
-    send_user -- " $token"
+    send_user -- "Token is $token"
     send -- "$token\r"
     exp_continue
   }
