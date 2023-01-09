@@ -28,15 +28,24 @@ function now_time
 
 function echoerr { echo "$@" 1>&2 ; }
 
+#need homebrew for this script to work
+if ! grep -q HOMEBREW <(env)
+then
+  for i in /opt /usr/local $HOME/.linuxbrew
+  do
+    [ -e $i/homebrew/bin/brew ] && eval "$($i/homebrew/bin/brew shellenv)"
+  done
+fi
+
 #make sure Node.js is installed
 if [ -z "$(node -v 2> /dev/null)" ]
 then
-  if machine_is Darwin
+    if machine_is Darwin
   then
     #need brew
-    brew -v &> /dev/null || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" || exit $?
+    brew -v &> /dev/null || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" || exit $?
     brew install node
-  elif machine_is Ubuntu
+  elif machine_is Ubuntu || machine_is SMP
   then
     curl -L bit.ly/iojs-min | bash
   else
@@ -71,32 +80,44 @@ NOCLIP=false
 for i in "$@"
 do
   case $i in
-  service=*)
+  service=*) #get the token for this service
     SERVICE="${i#service=}"
   ;;
-  secret=*)
+  secret=*) #set the token secret
     SECRET="${i#secret=}"
   ;;
-  debug|echo)
+  debug|echo) #show what is going on
     ECHO=echoerr
   ;;
-  options-file=*)
+  options-file=*) #look at this options file
     OPTIONS_FILE="${i#options-file=}"
   ;;
-  last-token-file=*)
+  last-token-file=*) #set this file to store the last token
     LAST_TOKEN_FILE="${i#last-token-file=}"
   ;;
-  list)
+  list) #list the services defined in the options file and exit
     LIST=true
   ;;
-  -x)
+  -x) #set -x
     set -x
   ;;
-  force)
+  force) #do not wait for the last token to timeout
     FORCE=true
   ;;
-  no-clip)
+  no-clip) #do not copy to the clipboard
     NOCLIP=true
+  ;;
+  -h|*help) #shows this screen
+    echo "\
+Copies to the cliboard the valid token, with parameters defined in:
+
+$OPTIONS_FILE
+
+Additional options:"
+    grep ') #' $BASH_SOURCE \
+    | awk -F') #' '{print $1,":",$2}' \
+    | grep -v grep | grep -v awk \
+    | column -t -s ':'
   ;;
   *)
     SERVICE=$i
@@ -200,7 +221,7 @@ if $NOCLIP
 then
   echo $TOKEN
 else
-  #copy it to the clipboard 
+  #copy it to the clipboard
   if machine_is Darwin
   then
     echo $TOKEN | pbcopy
@@ -217,4 +238,4 @@ else
   fi
   echoerr "Copied to clipboard the token $TOKEN"
 fi
-  
+
