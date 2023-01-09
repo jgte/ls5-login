@@ -38,13 +38,13 @@ There are three ways to set your login credentials:
 
 - Add them to the `USERNAME_DEFAULT` and `SECRET_DEFAULT` variables, towards the top of the script;
 
-- Create a file (the default is `$HOME/.ssh/ls5.sh.options`, or any other defined with the `options-file=` argument) with `username=<something>` and `secret=<something>` in individual lines;
+- Create a file (the default is `$HOME/.ssh/tacc.sh.options`, or any other defined with the `options-file=` argument) with `username=<something>` and `secret=<something>` in individual lines;
 
-- Explicitly call the `ls5.sh` script with the arguments `username=<something>` and `secret=<something>` (this is not advisable since the *secret* string is exposed to `ps`).
+- Explicitly call the `tacc.sh` script with the arguments `username=<something>` and `secret=<something>` (this is not advisable since the *secret* string is exposed to `ps`).
 
 ## Logging in
 
-Simply call the `ls5.sh` script (considering one of the three options of setting your login credentials explained above), give your password and wait for a few seconds.
+Simply call the `tacc.sh` script (considering one of the three options of setting your login credentials explained above), give your password and wait for a few seconds.
 
 ## Advanced options
 
@@ -57,7 +57,7 @@ The following optional input arguments are supported:
 - `remote-dir=<some remote dir>` to change into that directory before doing anything else (no default)
 - `remote-com=<some command to be run remotely>` to issue a command non-interactively (default `exec $SHELL -l`, don't forget `exit` if you want the session to end)
 - `debug` or `echo` shows the commands that would be issued (without actually doing anything)
-- `options-file=<some file with the options above, one in each line>` to store often-used options, such as `username=` and `secret=` (default is `$HOME/.ssh/ls5.sh.options`)
+- `options-file=<some file with the options above, one in each line>` to store often-used options, such as `username=` and `secret=` (default is `$HOME/.ssh/tacc.sh.options`)
 - `last-token-file=<some file>` defines the file where the last token is stored, so that no token is re-used in successive login attempts (defaults to `$HOME/.last-token`)
 - `sshfs=<some local empty dir>` instead of an interactive login shell mount the remote machine using sshfs, needs [OSX Fuse](https://osxfuse.github.io) or any other sshfs implementation, which usually available in most Linux/Unix distros (no default)
 - `token` retrieves the token, copying it to the clipboard (no other operations are done)
@@ -66,7 +66,7 @@ The following optional input arguments are supported:
 
 - with `echo`, no password is asked and you will not see how that affects the command that is shown;
 - the order of the commands is not important;
-- all input arguments described above can be written to a plain text file (default is `$HOME/.ssh/ls5.sh.options`), one option per line;
+- all input arguments described above can be written to a plain text file (default is `$HOME/.ssh/tacc.sh.options`), one option per line;
 - the arguments `username=` and `secret=` must be defined in one of the ways explained in [Setting your login credentials](#setting-your-login-credentials).
 
 
